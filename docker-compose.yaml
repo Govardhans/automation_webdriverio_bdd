@@ -1,0 +1,10 @@
+version: '3'
+services: 
+  web:    
+    build: 
+      context: .
+      dockerfile: Dockerfile 
+    environment:
+      - ENV=prod
+      #ENV can have values [prod, uat, qa]
+    command: ["npm", "run", "test"]
