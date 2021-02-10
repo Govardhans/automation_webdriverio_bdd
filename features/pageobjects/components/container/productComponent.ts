@@ -14,7 +14,9 @@ class ProductComponent {
      */
     isDisplayed(): boolean {
         this.genericProductList.waitForExist();
-        return this.genericProductList.isDisplayed();
+        const isPresent : boolean = this.genericProductList.isDisplayed();
+        console.log(`is Product displayed ? ${isPresent}`);
+        return isPresent;
     }
 
     addProductInWishList() {

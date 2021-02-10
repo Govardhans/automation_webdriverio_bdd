@@ -1,4 +1,3 @@
-//import * as config from './lib/config'
 const staticConfig = require('./lib/config')
 
 exports.config = {
@@ -75,7 +74,7 @@ exports.config = {
                 "--no-sandbox",
                 "--disable-gpu",
                 "--disable-dev-shm-usage",
-                // "--headless",
+                "--headless",
                 "user-agent=..."]
         },
         acceptInsecureCerts: true
@@ -153,7 +152,11 @@ exports.config = {
     // Test reporter for stdout.
     // The only one supported by default is 'dot'
     // see also: https://webdriver.io/docs/dot-reporter.html
-    reporters: ['spec'],
+    reporters: [['allure', {
+        outputDir: 'allure-results',
+        disableWebdriverStepsReporting: true,
+        disableWebdriverScreenshotsReporting: true,
+    }], 'spec'],
     port: 4444,
 
     //
@@ -271,13 +274,18 @@ exports.config = {
     /**
      * Runs after a Cucumber scenario
      */
-    // afterScenario: function (uri, feature, scenario, result, sourceLocation, context) {
-    // },
+    afterScenario: function ( uri, feature, scenario, result, sourceLocation, context) {  
+        console.log("scenario completed")      
+        browser.deleteAllCookies();
+        browser.reloadSession();
+        
+    },
     /**
      * Runs after a Cucumber feature
      */
-    // afterFeature: function (uri, feature, scenarios) {
-    // },
+    afterFeature: function (uri, feature, scenarios) {
+        console.log("Feature completed");        
+    },
 
     /**
      * Runs after a WebdriverIO command gets executed

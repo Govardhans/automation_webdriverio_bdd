@@ -1,11 +1,13 @@
-import loginOrRegistrationOverlay from './components/loginOrRegistrationOverlay';
+
 import LoginOrRegistrationOverlay from './components/loginOrRegistrationOverlay';
 import ShopToClubPopUp from './components/shopToClubPopUp';
+import SearchComponent from './components/header/searchComponent'
+import WishListComponent from './components/header/wishListComponent'
 
 /**
  * Base page class has the common methods used on all pages
  */
-class BasePage {
+export default class BasePage {
 
     /**
      * Elements declaration     
@@ -15,8 +17,10 @@ class BasePage {
     /**
      * pages declaration
      */
-    get loginOrRegistrationOverlay(): typeof loginOrRegistrationOverlay { return LoginOrRegistrationOverlay }
+    get loginOrRegistrationOverlay(): typeof LoginOrRegistrationOverlay { return LoginOrRegistrationOverlay }
     get shopToClubPopUp(): typeof ShopToClubPopUp { return ShopToClubPopUp }
+    get searchComponent() : typeof SearchComponent { return SearchComponent };
+    get wishListComponent() : typeof WishListComponent {return WishListComponent};
 
 
     /**
@@ -40,5 +44,3 @@ class BasePage {
 
 
 }
-
-export default new BasePage()

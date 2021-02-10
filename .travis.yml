@@ -1,0 +1,10 @@
+sudo: required
+language: generic
+services:
+  - docker
+
+before_install:
+  - docker build -t govardhans/docker_react -f .
+
+script:
+  - docker run -e CI=true govardhans/docker_react npm run test
