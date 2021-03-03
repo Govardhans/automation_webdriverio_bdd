@@ -6,6 +6,11 @@ Manual Testing of all workflows, all fields, all negative scenarios is time and 
 
 For this purpose this project provides the `automation script` written in the `Cucumber - BDD` way.
 
+## Technology Stack
+![WebdriverIO](http://www.christian-bromann.com/wdio.png)
+
+    
+
 ## 🚀 Getting started
 
 In order to run the provided application, please make sure you have `docker` and `docker-compose` installed on your system.
@@ -41,13 +46,13 @@ npm install
 `Run - windows command prompt`
 
 ```bash
-SET ENV=prod & npm test run
+SET ENV=prod & SET HEADLESS=false & npm test run
 ```
 
 `Run - mac or linux`
 
 ```bash
-ENV=prod npm test run
+ENV=prod HEADLESS=false npm test run
 ```
 
 ## 🔧 Additional tools
